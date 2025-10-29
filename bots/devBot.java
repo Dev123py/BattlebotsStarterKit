@@ -68,7 +68,7 @@ public class devBot extends Bot {
     public int getMove(BotInfo me, boolean shotOK, BotInfo[] liveBots, BotInfo[] deadBots, Bullet[] bullets) {
         Bullet closestbullet = helpme.findClosest(me, bullets); //finds the closest bot
 
-        // double manDist2Closebot = helpme.manhattanDist(me.getX(), me.getY(), closestbullet.getX(), closestbullet.getY()); //finds the distance to the closest bot
+        double manDist2Closebot = helpme.manhattanDist(me.getX(), me.getY(), closestbullet.getX(), closestbullet.getY()); //finds the distance to the closest bot
         double distX, distY;
 
         //get the absolute difference between x and y of closest bot
@@ -81,24 +81,17 @@ public class devBot extends Bot {
             return BattleBotArena.UP;
         } else if (closestbullet.getX() > me.getX() && closestbullet.getX() < me.getX()+moveDist && distY < moveDist) {
             return BattleBotArena.LEFT;
+        } else if (closestbullet.getX() > me.getX() && manDist2Closebot < moveDist && distX > distY) {
+            return BattleBotArena.LEFT;
+        } else if (closestbullet.getX() < me.getX() && manDist2Closebot < moveDist && distX > distY) {
+            return BattleBotArena.RIGHT;
+        } else if (closestbullet.getY() < me.getY() && manDist2Closebot < moveDist && distX < distY) {
+            return BattleBotArena.DOWN;
+        } else if (closestbullet.getY() > me.getY() && manDist2Closebot < moveDist && distX < distY) {
+            return BattleBotArena.UP;
         } else {
             return 9;
         }
-
-
-
-
-        // if (closestbullet.getX() > me.getX() && manDist2Closebot < moveDist && distX > distY) {
-        //     return BattleBotArena.LEFT;
-        // } else if (closestbullet.getX() < me.getX() && manDist2Closebot < moveDist && distX > distY) {
-        //     return BattleBotArena.RIGHT;
-        // } else if (closestbullet.getY() < me.getY() && manDist2Closebot < moveDist && distX < distY) {
-        //     return BattleBotArena.DOWN;
-        // } else if (closestbullet.getY() > me.getY() && manDist2Closebot < moveDist && distX < distY) {
-        //     return BattleBotArena.UP;
-        // } else {
-        //     return 9;
-        // }
     }
 
     /*

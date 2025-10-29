@@ -27,7 +27,6 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
 import bots.*;
 
 
@@ -618,7 +617,7 @@ public class BattleBotArena extends JPanel implements MouseListener, MouseWheelL
 		bots[0] = new HumanBot();
 		addKeyListener((HumanBot)bots[0]);
 		// ******************************
-		// bots[1] = new xxxBot();
+		bots[1] = new devBot();
 		// bots[2] = new xxxBot();
 		// bots[3] = new xxxBot();
 		// bots[4] = new xxxBot();
