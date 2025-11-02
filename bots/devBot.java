@@ -77,21 +77,29 @@ public class devBot extends Bot {
 
         // if statement will find out if the bot is above/under and or left/right of me and move away if the
         // distance between the closest is less than the desired move distance
-        if (closestbullet.getY() > me.getY() && closestbullet.getY() < me.getY()+moveDist && distX < moveDist) {
-            return BattleBotArena.UP;
-        } else if (closestbullet.getX() > me.getX() && closestbullet.getX() < me.getX()+moveDist && distY < moveDist) {
-            return BattleBotArena.LEFT;
-        } else if (closestbullet.getX() > me.getX() && manDist2Closebot < moveDist && distX > distY) {
-            return BattleBotArena.LEFT;
-        } else if (closestbullet.getX() < me.getX() && manDist2Closebot < moveDist && distX > distY) {
+        if (closestbullet.getY() > me.getY() && closestbullet.getY() < me.getY()+moveDist){
             return BattleBotArena.RIGHT;
-        } else if (closestbullet.getY() < me.getY() && manDist2Closebot < moveDist && distX < distY) {
-            return BattleBotArena.DOWN;
-        } else if (closestbullet.getY() > me.getY() && manDist2Closebot < moveDist && distX < distY) {
-            return BattleBotArena.UP;
-        } else {
-            return 9;
         }
+
+
+
+
+        // if (closestbullet.getY() > me.getY() && closestbullet.getY() < me.getY()+moveDist && distX < moveDist) {
+        //     return BattleBotArena.UP;
+        // } else if (closestbullet.getX() > me.getX() && closestbullet.getX() < me.getX()+moveDist && distY < moveDist) {
+        //     return BattleBotArena.RIGHT;
+        // } else if (closestbullet.getX() > me.getX() && manDist2Closebot < moveDist && distX > distY) {
+        //     return BattleBotArena.LEFT;
+        // } else if (closestbullet.getX() < me.getX() && manDist2Closebot < moveDist && distX > distY) {
+        //     return BattleBotArena.RIGHT;
+        // } else if (closestbullet.getY() < me.getY() && manDist2Closebot < moveDist && distX < distY) {
+        //     return BattleBotArena.RIGHT;
+        // } else if (closestbullet.getY() > me.getY() && manDist2Closebot < moveDist && distX < distY) {
+        //     return BattleBotArena.RIGHT;
+        // } else {
+        //     return 9;
+        // }
+        return 9;
     }
 
     /*
